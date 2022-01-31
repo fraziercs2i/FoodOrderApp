@@ -6,6 +6,10 @@ import CartContext from '../../../store/cart-context';
 const MealItem = props => {
 
     const cartCtx = useContext(CartContext);
+
+
+    const price = `$${props.price.toFixed(2)}`;  
+    
     const addToCartHandler = amount => {
         cartCtx.addItem({
             id: props.id,
@@ -14,9 +18,8 @@ const MealItem = props => {
             price: props.price
         });
     };
-
-    const price = `$${props.price.toFixed(2)}`;   //First $ to output the caracter dollar sign and one 
-                                                 //in combination with the curly braces
+ //First $ to output the caracter dollar sign and one 
+                                                  //in combination with the curly braces
     return <li classes={classes.meal}>
             <div><h3>{props.name}</h3>
             <div className={classes.description}>{props.description}</div>
